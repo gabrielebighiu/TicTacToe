@@ -1,0 +1,24 @@
+body {
+    text-align: center;
+}
+
+p {
+    font-size: 17px;
+}
+
+#gameBoard {
+    width: 450px;
+    height: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
