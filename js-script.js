@@ -7,7 +7,7 @@ let board = [
     ["", "", ""]
 ];
 let displayText = document.getElementById("displayText");
-let gameOver = false;
+let gameWon = false;
 
 // This adds event listener to all elements with the 'box' class
 const boxes = document.getElementsByClassName("box");
@@ -17,7 +17,7 @@ for (let box of boxes) {
 
 function setBox() {
     // If someone already won it won't let players make any other changes to the board
-    if (gameOver) {
+    if (gameWon) {
         return;
     }
     // Retrieves the id and splits it into row and col
@@ -51,7 +51,7 @@ function checkWin() {
     // Checks for horizontal win
     for (let x = 0; x < 3; ++x) {
         if (board[x][0] == board[x][1] && board[x][1] == board[x][2] && board[x][2] != "") {
-            gameOver = true;
+            gameWon = true;
             displayText.innerText = board[x][0] + " won!";
             return;
         }
@@ -59,20 +59,20 @@ function checkWin() {
     // Checks for vertical win
     for (let y = 0; y < 3; ++y) {
         if (board[0][y] == board[1][y] && board[1][y] == board[2][y] && board[2][y] != "") {
-            gameOver = true;
+            gameWon = true;
             displayText.innerText = board[0][y] + " won!";
             return;
         }
     }
     // Checks for diagonal win
     if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[2][2] != "") {
-        gameOver = true;
+        gameWon = true;
         displayText.innerText = board[0][0] + " won!";
         
     }
     // Counterdiagonal
     if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[2][0] != "") {
-        gameOver = true;
+        gameWon = true;
         displayText.innerText = board[0][2] + " won!";
         
     }
